@@ -1,0 +1,168 @@
+* {
+    margin: 0; /*Zerando o do navegador*/
+    padding: 0; /*Zerando o do navegador*/
+    box-sizing: border-box; /*Transforma as medidas pela borda*/
+}
+
+:root {
+    --texct-color: white;
+    --bg-url: url(./img/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url: url(img/moon-stars.svg);
+}
+
+.light {
+    --texct-color: black;
+    --bg-url: url(./img/bg-mobile-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(img/sun.svg);
+}
+
+body {
+    /* background-image: url(./img/bg-mobile.jpg); 
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover; */
+    
+    background: var(--bg-url) no-repeat top center/cover;
+    /* Uma forma simplificada de todo o código background */
+}
+
+body * {
+    font-family: 'inter', sans-serif; /*Font da escrita / site*/
+    color: var(--texct-color); /*Cor da letra*/
+}
+
+#container {
+    
+    width: 360px; /*Largura*/
+    margin-top: 56px; /*Uma margem superior*/
+    margin-bottom: auto; /*Margem inferior*/
+    margin-left: auto; /*Margem esquerda*/
+    margin-right: auto; /*Margem direira*/
+
+    /* margin: 56px auto 0px; */
+
+    padding: 0 24px; /*Prenchimento de todos os lados, mas com 0 em cima e em baixo, porem 24px nas laterais*/
+}
+
+#profile {
+    text-align: center; /*Alinhamento do texto*/
+    padding: 24px; /*Preenchimento de todos os lados*/
+}
+
+#profile img {
+    width: 112px; /*Largura*/
+}
+
+#profile p {
+    font-weight: 500; /*Negrito*/
+    line-height: 16px; /*Altura da linha*/
+    margin-top: 8px; /*Uma margem superior*/
+}
+
+#switch {
+    position: relative; /*Posição relativa*/
+    width: 64px; /*Largura*/
+
+    margin: 4px auto; /*Uma margem*/
+}
+
+#switch button {
+    width: 32px; /*Largura*/
+    height: 32px; /*Altura*/
+    background: white var(--switch-bg-url) no-repeat center; /*Fundo branco, com img, sem repetir a img e alinhada no centro*/
+    border: 0; /*Borda*/
+    border-radius: 50%; /*Borda arredondada*/
+
+    position: absolute; /*Posição absoluta*/
+    top: 50%; /*Cima*/
+    left: 0; /* Lado esquerdo*/
+    z-index: 1; /*Andar 1*/
+    transform: translateY(-50%); /*-50% no eixo Y*/
+}
+
+.light #switch button {
+    right: 0; /*Lado direito*/
+    left: initial;
+}
+
+#switch span {
+    display: block;
+    width: 64px; /*Largura*/
+    height: 24px; /*Altura*/
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px); /*"webkit é utilizado para o comando funcionar em alguns browsers"*/
+    border-radius: 9999px;
+}
+
+ul {
+    list-style: none; /*Estilo da linta: nenhum*/
+
+    display: flex; /*Faz com q ocupe td o espaço disponível*/
+    flex-direction: column; /*Direção do flex seja em formato de coluna*/
+    gap: 16px; /*Espaco entre os elementos*/
+
+    padding: 24px 0; /*Espaço em todas as direções, neste caso 24px em cima*/
+}
+
+ul li a {
+    display: flex; /*Faz com q ocupe td o espaço disponível*/
+    justify-content: center; /*Alinha o conteudo: centro*/
+    align-items: center; /*Alinhar no centro*/
+
+    padding: 16px 24px; /*Preenchimento de todos os lados, cima e lado*/
+
+    background: var(--surface-color); /*red, green, blue e alpha(transparência)*/
+    border: 1px solid var(--stroke-color); /*Borda com grossura de 1px, visível e com cores rgba*/
+    border-radius: 8px; /*Arredondamento de borda*/
+
+    backdrop-filter: blur(4px); /*Fundo dos bottons embaçado*/
+    -webkit-backdrop-filter: blur(4px); /*"webkit é utilizado para o comando funcionar em alguns browsers"*/
+
+    text-decoration: none; /*Sem decoração de texto*/
+    font-weight: 500; /*Negrito*/
+
+    transition: background 0.2s; /*Transição das cores de fundo, deixando mais suave*/
+}
+
+ul li a:hover {
+    background: var(--surface-color-hover); /*red, green, blue e alpha(transparência)*/
+    border: 1.5px solid var(--texct-color); /*Borda com grossura de 1.5px, visível e com a cor branca*/
+}
+
+#social-links {
+    display: flex; /*Faz com q ocupe td o espaço disponível*/
+    justify-content: center; /*Elementos alinhado no centro*/
+
+    padding: 24px 0; /*Prenchimento de todos os lados*/
+
+    font-size: 24px; /*Tamanho da fonte*/
+}
+
+#social-links a {
+    display: flex; /*Faz com q ocupe td o espaço disponível*/
+    align-items: center; /*Alinhar no centro*/
+    justify-content: center; /*Elementos alinhado no centro*/
+    padding: 16px; /*Espaço em todas as direções*/
+
+    transition: background 0.2s; /*Transição das cores de fundo, deixando mais suave*/
+    border-radius: 50%; /*Arredondamento de borda*/
+}
+
+#social-links a:hover {
+    background: var(--highlight-color); /*red, green, blue e alpha(transparência)*/
+}
+
+footer {
+    padding: 24px 0; /*Prenchimento de todos os lados*/
+    text-align: center; /*Alinhamento do texto*/
+}
